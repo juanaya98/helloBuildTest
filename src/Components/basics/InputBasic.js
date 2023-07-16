@@ -5,6 +5,15 @@ const InputBasic = ({ type, placeholder, username, eventOnChange }) => {
       placeholder={placeholder}
       value={username}
       onChange={eventOnChange}
+      style={{
+        width: "600px",
+        height: "50px",
+        borderRadius: "5px",
+        fontFamily: "roboto",
+        fontWeight: "500px",
+        fontSize: "20px",
+        paddingLeft: "15px",
+      }}
     />
   );
 };

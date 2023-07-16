@@ -9,24 +9,26 @@ const Register = () => {
   const handleRegister = () => {
     // Aquí puedes realizar las validaciones necesarias antes de almacenar los datos en el almacenamiento local
     LocalStorageService.setUserCredentials(username, password);
+    setUsername('');
+    setPassword('');
   };
 
   return (
     <div>
-      <h2>Registro</h2>
+      <h2>Register</h2>
       <InputBasic
         type="text"
-        placeholder="Nombre de usuario"
+        placeholder="Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
       <InputBasic
         type="password"
-        placeholder="Contraseña"
+        placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button onClick={handleRegister}>Registrarse</button>
+      <button onClick={handleRegister}>Register</button>
     </div>
   );
 };
