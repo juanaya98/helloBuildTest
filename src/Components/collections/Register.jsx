@@ -1,23 +1,22 @@
 import React, { useState } from "react";
 import LocalStorageService from "../../Services/LocalStorage";
 import InputBasic from "../basics/InputBasic.js";
-import { useHistory } from "react-router-dom";
+import "./styles.css";
+import { useNavigate } from "react-router";
 
-const Register = () => {
+const Register = ({ handleGoBack }) => {
   const [user, setUser] = useState({ username: "", password: "" });
-
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleRegister = () => {
     LocalStorageService.setUserCredentials(user);
     setUser({ username: "", password: "" });
     alert("user added");
-    history.replace("./login");
+    navigate("./*");
   };
 
   return (
-    <div>
-      <h2>Register</h2>
+    <div className="register">
       <InputBasic
         type="text"
         placeholder="Username"
@@ -34,7 +33,38 @@ const Register = () => {
           setUser((prev) => ({ ...prev, password: e.target.value }))
         }
       />
-      <button onClick={handleRegister}>Register</button>
+      <div className="register__button">
+        <button
+          className=""
+          onClick={handleGoBack}
+          style={{
+            width: "200px",
+            height: "50px",
+            borderRadius: "5px",
+            fontFamily: "roboto",
+            fontWeight: "500px",
+            fontSize: "20px",
+            paddingLeft: "15px",
+          }}
+        >
+          Go back
+        </button>
+        <button
+          className="register-button"
+          onClick={handleRegister}
+          style={{
+            width: "200px",
+            height: "50px",
+            borderRadius: "5px",
+            fontFamily: "roboto",
+            fontWeight: "500px",
+            fontSize: "20px",
+            paddingLeft: "15px",
+          }}
+        >
+          Register
+        </button>
+      </div>
     </div>
   );
 };

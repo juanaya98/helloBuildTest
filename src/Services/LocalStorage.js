@@ -4,15 +4,21 @@ class LocalStorage {
     if (localStorage.getItem("user")) {
       users = [...JSON.parse(localStorage.getItem("user"))];
     }
-    users.push(user);
-    console.log("user", user);
-    localStorage.setItem("user", JSON.stringify(users));
+    const userExist = users?.some((e) => e.username === user.username);
+    if (!userExist) {
+      users.push(user);
+      localStorage.setItem("user", JSON.stringify(users));
+      console.log("user don´t Exist");
+    }else{
+      console.log("user Exist")
+      
+    }
   }
 
   static validateUserCredentials(user) {
     const users = JSON.parse(localStorage.getItem("user")) || [];
     const validationCredencitials = users?.find(
-      (e) => e.username == user.username && e.password == user.password
+      (e) => e.username === user.username && e.password === user.password
     );
     console.log(validationCredencitials, users, user);
     return !!validationCredencitials;

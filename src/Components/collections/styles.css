@@ -1,16 +1,50 @@
 .login {
   display: grid;
-  grid-template-rows: 70px 70px 70px 70px;
+  grid-template-rows: 70px 70px 70px 70px 10px;
   width: 95%;
   height: 95%;
   justify-content: center;
   align-items: center;
   justify-items: center;
 
-  .login-title {
-    font-family: "Roboto";
-    font-weight: 700;
-    font-size: 32px;
-    align-items: flex-start;
+}
+
+.register {
+  display: grid;
+  grid-template-rows: 70px 70px 70px;
+  width: 95%;
+  height: 95%;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+
+  .register__button {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
   }
+}
+
+.repoBody{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+}
+
+.repoChild {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+  margin-top: 30px;
+  gap: 30px;
+}
+
+.repoBodyButtons{
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  
 }

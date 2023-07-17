@@ -20,9 +20,9 @@ const ReposFavorites = ({ username }) => {
   return (
     <div>
       <h2>Repositorios favoritos de {username}</h2>
-      {favorites.map((fav) => (
+      {/* {favorites.map((fav) => (
         <div key={fav.id}>{fav.name}</div>
-      ))}
+      ))} */}
     </div>
   );
 };
