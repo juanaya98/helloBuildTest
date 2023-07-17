@@ -1,10 +1,10 @@
-const InputBasic = ({ type, placeholder, username, eventOnChange }) => {
+const InputBasic = ({ type, placeholder, username, onChangeInput }) => {
   return (
     <input
       type={type}
       placeholder={placeholder}
       value={username}
-      onChange={eventOnChange}
+      onChange={onChangeInput}
       style={{
         width: "600px",
         height: "50px",

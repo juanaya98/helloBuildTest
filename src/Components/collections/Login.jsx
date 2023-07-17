@@ -4,19 +4,15 @@ import InputBasic from "../basics/InputBasic";
 import "./styles.css";
 
 const Login = ({ onLogin }) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [user, setUser] = useState({ username: "", password: "" });
 
   const handleLogin = () => {
     // Aquí puedes realizar las validaciones necesarias contra el almacenamiento local
-    const isValidCredentials = LocalStorageService.validateUserCredentials(
-      username,
-      password
-    );
+    const isValidCredentials =
+      LocalStorageService.validateUserCredentials(user);
     if (isValidCredentials) {
-      onLogin(username);
-      setUsername('');
-      setPassword('');
+      onLogin(user.username);
+      setUser("");
     } else {
       alert("Credenciales inválidas");
     }
@@ -27,14 +23,18 @@ const Login = ({ onLogin }) => {
       <InputBasic
         type="text"
         placeholder="Nombre de usuario"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
+        value={user.username}
+        onChangeInput={(e) =>
+          setUser((prev) => ({ ...prev, username: e.target.value }))
+        }
       />
       <InputBasic
         type="password"
         placeholder="Contraseña"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        value={user.password}
+        onChangeInput={(e) =>
+          setUser((prev) => ({ ...prev, password: e.target.value }))
+        }
       />
       <button
         className="login-button"
